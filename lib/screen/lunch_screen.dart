@@ -21,7 +21,7 @@ class _LunchScreenState extends State<LunchScreen> {
     Future.delayed(const Duration(seconds: 2), () {
       return streamSubscription =
           FirebaseAuthController().checkUserState(({required bool loggedIn}) {
-        String rout = loggedIn ? '/home_screen' : 'login_screen';
+        String rout = loggedIn ? '/notes_screen' : '/login_screen';
         Navigator.pushReplacementNamed(context, rout);
       });
     });

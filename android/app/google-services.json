@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1096046974222",
+    "project_id": "fir-withui",
+    "storage_bucket": "fir-withui.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1096046974222:android:3bc67b1d10d1674126335f",
+        "android_client_info": {
+          "package_name": "com.example.firebase_with_ui"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1096046974222-q3a05f8f1tbq2ipdrr7dfigof9peqhm3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCywcPhHfsaFrMt-Lcjn85r8v2GT-jHak"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1096046974222-q3a05f8f1tbq2ipdrr7dfigof9peqhm3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

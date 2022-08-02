@@ -145,7 +145,7 @@ class _LoginScreenState extends State<LoginScreen> with Helper {
         password: _passwordController.text, email: _emailController.text);
     showSnackBar(context, message: fbResponse.message, error: !fbResponse.status);
     if(fbResponse.status){
-      Navigator.pushReplacementNamed(context, '/home_screen');
+      Navigator.pushReplacementNamed(context, '/notes_screen');
     }
   }
 }

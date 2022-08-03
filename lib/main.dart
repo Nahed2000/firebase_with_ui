@@ -1,6 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_with_ui/screen/auth/login_screen.dart';
-import 'package:firebase_with_ui/screen/notes_screen.dart';
+import 'package:firebase_with_ui/screen/note/notes_screen.dart';
 import 'package:firebase_with_ui/screen/lunch_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/lunch_screen',
       routes: {
         '/lunch_screen':(context) =>const LunchScreen(),
-        '/notes_screen':(context) =>const HomeScreen(),
+        '/notes_screen':(context) =>const NotesScreen(),
         '/login_screen':(context) =>const LoginScreen(),
         '/register_screen':(context) =>const RegisterScreen(),
         '/forget_password':(context) =>const ForgetPassword(),

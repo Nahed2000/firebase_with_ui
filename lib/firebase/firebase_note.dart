@@ -23,8 +23,8 @@ class FirebaseNoteController {
         .catchError((onError) => false);
   }
 
-  Future<void> update({required Note note}) async {
-    _instance
+  Future<bool> update({required Note note}) async {
+    return _instance
         .collection('Notes')
         .doc(note.id)
         .update(note.toMap())
@@ -33,7 +33,7 @@ class FirebaseNoteController {
   }
 
   Stream<QuerySnapshot<Note>> read() async* {
-    Stream<QuerySnapshot<Note>> querySnapshot = _instance
+    yield* _instance
         .collection('Notes')
         .withConverter<Note>(
           fromFirestore: (snapshot, options) => Note.fromMap(snapshot.data()!),

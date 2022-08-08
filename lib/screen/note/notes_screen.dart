@@ -31,6 +31,15 @@ class _NotesScreenState extends State<NotesScreen> with Helper {
         backgroundColor: Colors.white,
         actions: [
           IconButton(
+            onPressed: () async {
+              Navigator.pushReplacementNamed(context, '/image_screen');
+            },
+            icon: const Icon(
+              Icons.camera,
+              color: Colors.black,
+            ),
+          ),
+          IconButton(
             onPressed: () {
               Navigator.push(
                   context,

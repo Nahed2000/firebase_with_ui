@@ -21,7 +21,7 @@ class ImagesBloc extends Bloc<CrudEvent, CrudState> {
   void _create(CreateEvent event, Emitter emit) async {
     UploadTask uploadTask = _firebaseStorageController.save(file: event.file);
 
-    uploadTask.snapshotEvents.listen((event) {
+   await uploadTask.snapshotEvents.listen((event) {
       if (uploadTask.snapshot.state == TaskState.success) {
         references.add(event.ref);
         emit(ProcessState(
@@ -29,14 +29,14 @@ class ImagesBloc extends Bloc<CrudEvent, CrudState> {
           status: true,
           message: 'Uploaded Successfully',
         ));
-      } else {
+      } else if(event.state == TaskState.error){
         emit(ProcessState(
           processType: ProcessType.create,
           status: false,
           message: 'Uploaded Failed',
         ));
       }
-    });
+    }).asFuture();
   }
 
   void _read(ReadEvent event, Emitter emit) async {
@@ -45,11 +45,25 @@ class ImagesBloc extends Bloc<CrudEvent, CrudState> {
   }
 
   void _delete(DeleteEvent event, Emitter emit) async {
-    bool status = await _firebaseStorageController.delete(path: event.path);
-    String message = status ? 'deleted Successfully ' : 'deleted failed';
+    // bool deleted = await _firebaseStorageController.delete(path: event.path);
+    //if(deleted){
+    // int index = references.indexWhere((element) => event.fullPath==event.path);
+    //if(index !=-1){
+    // references.removeAt(index);
+    // }
+    // }
+    bool deleted = await _firebaseStorageController.delete(
+        path: references[event.index].fullPath);
+    if (deleted){
+      references.removeAt(event.index);
+      emit(ReadState(data: references));
+    }
+      
+    String message = deleted ? 'deleted Successfully ' : 'deleted failed';
+
     emit(ProcessState(
       processType: ProcessType.delete,
-      status: status,
+      status: deleted,
       message: message,
     ));
   }

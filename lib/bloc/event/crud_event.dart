@@ -11,7 +11,8 @@ class CreateEvent extends CrudEvent {
 class ReadEvent extends CrudEvent {}
 
 class DeleteEvent extends CrudEvent{
-  final String path;
+  // final String path;
+  final int  index;
 
-  DeleteEvent({required this.path});
+  DeleteEvent({required this.index});
 }

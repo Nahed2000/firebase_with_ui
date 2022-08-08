@@ -4,6 +4,8 @@ enum ProcessType { create, delete }
 
 abstract class CrudState {}
 
+class LoadingState extends CrudState {}
+
 class ReadState extends CrudState {
   final List<Reference> data;
 
@@ -16,8 +18,8 @@ class ProcessState extends CrudState {
   final String message;
 
   ProcessState({
-   required this.processType,
-   required this.status,
-   required this.message,
+    required this.processType,
+    required this.status,
+    required this.message,
   });
 }
